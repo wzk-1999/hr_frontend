@@ -27,6 +27,10 @@ const HeaderComponent = () => {
     {
       key: 'home',
       label: <Link to="/user/home">首页</Link>,
+    },
+    {
+      key: 'salary',
+      label: <Link to="/salary/detail">薪资</Link>,
     }
   ];
 

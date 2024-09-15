@@ -21,6 +21,7 @@ function ClockIn() {
   const username = token ? jwtDecode(token).username : null;
 
   const determineButtonText = async () => {
+    // console.log("execute")
     const morningData = await fetchClockInData(1);
     
     const afternoonData = await fetchClockInData(0);
@@ -121,13 +122,13 @@ function ClockIn() {
       // console.log("打下班卡")
       const morningData = await fetchClockInData(1);
       if(morningData){setMorningClockInTime(morningData.clockInTime);}
-      console.log(morningData)
+      // console.log(morningData)
       if (morningClockInTime) {
         const morningTime = new Date(morningClockInTime);
         const currentTime = new Date(clockInTime);
         const hoursDifference = (currentTime - morningTime) / (1000 * 60 * 60); // Convert milliseconds to hours
         // console.log(morningTime)
-        if (hoursDifference < 0) {
+        if (hoursDifference < 8) {
           // Show alert and prevent punch out
           message.warning(`You need to punch out at least 8 hours after your morning clock-in. Earliest punch-out time is ${new Date(morningTime.getTime() + 8 * 60 * 60 * 1000).toLocaleTimeString('en-US', { hour12: false })}.`);
           return;
