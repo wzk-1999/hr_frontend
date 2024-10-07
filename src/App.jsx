@@ -13,7 +13,7 @@ function App() {
         <Route path="/" element={<Login />} /> {/* 默认路由指向登录页面 */}  
         <Route path="/user/home" element={<Home />} /> {/* 登录成功后跳转的页面 */}  
         <Route path="/user/clockin" element={<ClockIn />} /> {/* 打卡页面*/}  
-        <Route path="/salary/detail" element={<Salary />} /> {/* 工资明细页面*/}  
+        <Route path="/user/salary" element={<Salary />} /> {/* 工资明细页面*/}  
         {/* 这里可以添加更多的路由 */}  
       </Routes>  
     </Router>  
